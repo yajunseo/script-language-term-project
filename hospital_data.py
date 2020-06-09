@@ -240,7 +240,7 @@ def run():
 # init()
 
 def HospitalInfo(text):
-    mentalUrl = "http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire?serviceKey=Qk8uOUDSD3b%2BiE3LQZkHQIaX0LFPSxjkuk1%2FGWEqF5G27S70VniEE9VAswjb6O1TGoQDaBdSQthc%2Fw0n95q3cQ%3D%3D&Q0=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C&Q1=%EA%B0%95%EB%82%A8%EA%B5%AC&QT=1&QN=%EC%82%BC%EC%84%B1%EC%95%BD%EA%B5%AD&ORD=NAME&pageNo=1&numOfRows=10&"
+    mentalUrl = "http://apis.data.go.kr/B551182/hospInfoService/getHospBasisList?sidoCd=110000&sgguCd=110019&emdongNm=신내동&yadmNm=서울의료원&zipCd=2010&clCd=11&xPos=127.09854004628151&yPos=37.6132113197367&radius=3000&ServiceKey=Qk8uOUDSD3b%2BiE3LQZkHQIaX0LFPSxjkuk1%2FGWEqF5G27S70VniEE9VAswjb6O1TGoQDaBdSQthc%2Fw0n95q3cQ%3D%3D"
     res = urllib.request.urlopen(mentalUrl)
     decoding = str(res.read().decode("utf-8"))
     # pprint(decoding)
