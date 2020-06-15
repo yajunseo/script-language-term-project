@@ -9,12 +9,13 @@ from tkinter import Tk, ttk, StringVar,messagebox
 from tkinter import *
 from tkinter import ttk
 
-
+from pprint import pprint
+import smtplib
 
 def Infromation(window, text):
     global message
 
-    SIGUM_NM = []
+    SIGUN_NM = []
     SIGUN_CD = []
     INST_NM = []
     DIV_NM = []
@@ -29,27 +30,28 @@ def Infromation(window, text):
     root = tree.getroot()
 
     for i in root.findall('.//row'):
-        SIGUM_NM.append(i.findtext("SIGUM_NM"))
+        SIGUN_NM.append(i.findtext("SIGUN_NM"))
         SIGUN_CD.append(i.findtext("SIGUN_CD"))
         INST_NM.append(i.findtext("INST_NM"))
         DIV_NM.append(i.findtext("DIV_NM"))
         GRAD.append(i.findtext("GRAD"))
-        LOTTION_ADDR.append(i.findtext("LOTTION_ADDR"))
-        ROADNM_ADDR.append(i.findtext("ROADNM_ADDR"))
-        ZIP_CD.append(i.findtext("ZIP_CD"))
-        LOGT.append(i.findtext("LOGT"))
-        LAT.append(i.findtext("LAT"))
+        LOTTION_ADDR.append(i.findtext("REFINE_LOTNO_ADDR"))
+        ROADNM_ADDR.append(i.findtext("REFINE_ROADNM_ADDR"))
+        ZIP_CD.append(i.findtext("REFINE_ZIP_CD"))
+        LOGT.append(i.findtext("REFINE_WGS84_LOGT"))
+        LAT.append(i.findtext("REFINE_WGS84_LAT"))
 
-    count = len(SIGUM_NM)
+    count = len(SIGUN_NM)
+    print(count)
     index = 0
     num = 1
     hosInfo = Listbox(window)
-    print(111111111111111)
     hosInfo.place(x=400, y=10, width=380, height=570)
 
 
     for i in range(0, count):
-        if SIGUM_NM[i] == text:
+        print(SIGUN_NM[i])
+        if SIGUN_NM[i] == text:
             hosInfo.insert(index, '[ ' + str(num) + ' ]')
             index += 1
             hosInfo.insert(index, '등급: ' + GRAD[i])
@@ -65,15 +67,7 @@ def Infromation(window, text):
             hosInfo.insert(index, '===========================================================')
             index += 1
             num += 1
-            if Grade[i] == "1등급":
-                message = str('[ 1등급 병원 정보 ]\n' +
-                              '병원이름 : ' + INST_NM[i] + '\n' +
-                              '평가내역 : ' + DIV_NM[i] + '\n' +
-                              '등급 : ' + GRAD[i] + '\n' +
-                              '주소 : ' + LOTTION_ADDR[i] + '\n' +
-                              '우편번호 : ' + ZIP_CD[i] + '\n' +
-                              '===========================================================\n'
-                              )
+
 
     pass
 
