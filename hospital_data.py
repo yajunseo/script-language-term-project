@@ -1,4 +1,6 @@
 import game_framework
+import start_state
+import pharmacy_data
 import urllib
 from urllib.request import Request
 from urllib.request import urlopen
@@ -14,6 +16,12 @@ from tkinter import Tk, ttk, StringVar,messagebox
 from tkinter import *
 from tkinter import ttk
 import xml_data
+
+def go_start():
+    game_framework.change_state(start_state)
+
+def go_pharmacy():
+    game_framework.change_state(pharmacy_data)
 
 
 def sendMail(you, msg):
@@ -33,6 +41,12 @@ def run():
     window = Tk()
     window.title('병원정보')
     window.geometry('800x600')
+
+    button1 = Button(window, text="메인 화면", command=go_start)
+    button1.place(x=0, y=0)
+
+    button2 = Button(window, text="약국 정보", command=go_pharmacy)
+    button2.place(x=70, y=0)
 
     label3 = Label(window, text='질병선택',relief='ridge', width=8, height=1)
     label3.place(x=20, y=100)
