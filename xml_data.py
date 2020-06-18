@@ -46,7 +46,7 @@ def Infromation(window, text):
     index = 0
     num = 1
     hosInfo = Listbox(window)
-    hosInfo.place(x=400, y=10, width=380, height=570)
+    hosInfo.place(x=20, y=200, width=360, height=380)
 
 
     for i in range(0, count):

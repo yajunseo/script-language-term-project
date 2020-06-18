@@ -1,6 +1,6 @@
 import game_framework
 import hospital_data
-import pharmacy_data
+import bookmark
 from tkinter import *
 
 name = "StartState"
@@ -18,8 +18,8 @@ def exit():
 def go_hodpital():
     game_framework.change_state(hospital_data)
 
-def go_pharmacy():
-    game_framework.change_state(pharmacy_data)
+def go_bookmark():
+    game_framework.change_state(bookmark)
 
 def run():
     global window
@@ -35,7 +35,7 @@ def run():
     button1 = Button(window,text="병원 조회",command = go_hodpital)
     button1.place(x=150,y=380)
 
-    button2 = Button(window, text="약국 조회", command=go_pharmacy)
+    button2 = Button(window, text="즐겨 찾기", command=go_bookmark)
     button2.place(x=290, y=380)
 
     window.mainloop()
