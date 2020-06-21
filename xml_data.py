@@ -1,20 +1,11 @@
 import urllib
 from urllib.request import Request
-from urllib.request import urlopen
-from urllib.parse import quote_plus
-from urllib.parse import urlencode
-import json
 from xml.etree import ElementTree
-from tkinter import Tk, ttk, StringVar,messagebox
 from tkinter import *
-from tkinter import ttk
-
-from pprint import pprint
-import smtplib
+import hospital_data
 
 def Infromation(window, text):
-    global message
-
+    global check
     SIGUN_NM = []
     SIGUN_CD = []
     INST_NM = []
@@ -31,10 +22,7 @@ def Infromation(window, text):
 
     for i in root.findall('.//row'):
         SIGUN_NM.append(i.findtext("SIGUN_NM"))
-        SIGUN_CD.append(i.findtext("SIGUN_CD"))
         INST_NM.append(i.findtext("INST_NM"))
-        DIV_NM.append(i.findtext("DIV_NM"))
-        GRAD.append(i.findtext("GRAD"))
         LOTTION_ADDR.append(i.findtext("REFINE_LOTNO_ADDR"))
         ROADNM_ADDR.append(i.findtext("REFINE_ROADNM_ADDR"))
         ZIP_CD.append(i.findtext("REFINE_ZIP_CD"))
@@ -46,28 +34,24 @@ def Infromation(window, text):
     index = 0
     num = 1
     hosInfo = Listbox(window)
-    hosInfo.place(x=20, y=200, width=360, height=380)
+    hosInfo.place(x=20, y=220, width=360, height=360)
+    check = 1
 
 
     for i in range(0, count):
         print(SIGUN_NM[i])
         if SIGUN_NM[i] == text:
-            hosInfo.insert(index, '[ ' + str(num) + ' ]')
-            index += 1
-            hosInfo.insert(index, '등급: ' + GRAD[i])
-            index += 1
             hosInfo.insert(index, '병원이름: ' + INST_NM[i])
             index += 1
-            hosInfo.insert(index, '평가내역: ' + DIV_NM[i])
+            hosInfo.insert(index, '도로명주소: ' + LOTTION_ADDR[i])
             index += 1
-            hosInfo.insert(index, '주소:' + LOTTION_ADDR[i])
+            hosInfo.insert(index, '지번주소: ' + ROADNM_ADDR[i])
             index += 1
             hosInfo.insert(index, '우편번호: ' + ZIP_CD[i])
             index += 1
-            hosInfo.insert(index, '===========================================================')
+            hosInfo.insert(index, '--------------------------------------------------------------------------------------')
             index += 1
             num += 1
-
 
     pass
 

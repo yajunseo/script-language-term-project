@@ -27,11 +27,10 @@ def run():
     window.title('전국 약국 병원 정보')
     window.geometry('500x500')  # width x height + 가로격자+세로격자
 
-    map = 'Hospital.png'
-    img = PhotoImage(file=map)
+    hosImg = PhotoImage(file='Hospital.png')
 
-    map_label = Label(window, image=img)
-    map_label.place(x=50, y=50)
+    map = Label(window, image=hosImg)
+    map.place(x=50, y=50)
     button1 = Button(window,text="병원 조회",command = go_hodpital)
     button1.place(x=150,y=380)
 
