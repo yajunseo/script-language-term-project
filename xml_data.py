@@ -1,11 +1,23 @@
 import urllib
 from urllib.request import Request
 from xml.etree import ElementTree
+import tkinter
 from tkinter import *
+from tkinter import ttk
 import hospital_data
+import bookmark
+
 
 def Infromation(window, text):
-    global check
+
+    def marking():
+        win = bookmark.bookWindow()
+        bookhosInfo = Listbox(win)
+        bookhosInfo.append(hosInfo[num-1])
+        print(bookhosInfo[num - 1][0])
+
+
+
     SIGUN_NM = []
     SIGUN_CD = []
     INST_NM = []
@@ -16,6 +28,7 @@ def Infromation(window, text):
     ZIP_CD = []
     LOGT = []
     LAT = []
+
 
     tree = ElementTree.parse("hospital_inform.xml")
     root = tree.getroot()
@@ -34,9 +47,9 @@ def Infromation(window, text):
     index = 0
     num = 1
     hosInfo = Listbox(window)
-    hosInfo.place(x=20, y=220, width=360, height=360)
-    check = 1
+    hosInfo.place(x=20, y=200, width=360, height=340)
 
+    print(hospital_data.check)
 
     for i in range(0, count):
         print(SIGUN_NM[i])
@@ -53,9 +66,22 @@ def Infromation(window, text):
             index += 1
             num += 1
 
+
+    label5 = Label(window, text='즐겨찾기', relief='ridge', width=9, height=1)
+    label5.place(x=20, y=560)
+
+    edit = tkinter.Entry(window, width = 25)
+    edit.place(x= 100,y = 560)
+
+
+    action3 = ttk.Button(window, text="등록", command = marking)
+    action3.place(x=290, y=560)
+
+
+    window.mainloop()
     pass
 
-def Grade(window, text):
+def Mental(window, text):
     url = "https://openapi.gg.go.kr/Hosptlevaltnpsychs?Key=87b45899e7ae4c1abd87299b4ef3ce04&pIndex=1&pSize=100"
     response = urllib.request.urlopen(url)
     str(response.read().decode("utf-8"))
@@ -67,7 +93,7 @@ def Grade(window, text):
     Infromation(window, text)
     pass
 
-def Paeream(window, text):
+def Paeream(window, text,check):
     url = "https://openapi.gg.go.kr/Hosptlevaltnpen?Key=87b45899e7ae4c1abd87299b4ef3ce04&pIndex=1&pSize=100"
     response = urllib.request.urlopen(url)
     str(response.read().decode("utf-8"))

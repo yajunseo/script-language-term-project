@@ -3,6 +3,7 @@ import start_state
 import hospital_data
 from tkinter import *
 
+global window
 
 def go_start():
     game_framework.change_state(start_state)
@@ -13,6 +14,10 @@ def go_hodpital():
 def exit():
     window.destroy()
     pass
+
+def bookWindow():
+    global window
+    return window
 
 def run():
 
