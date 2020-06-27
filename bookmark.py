@@ -29,6 +29,9 @@ def run():
     window.title('즐겨찾기')
     window.geometry('400x600')
 
+    label = Label(window, text='즐겨 찾기', relief='ridge', width=30, height=2)
+    label.place(x=90, y=40)
+
     button1 = Button(window, text="메인 화면", command=go_start)
     button1.place(x=0, y=0)
 
@@ -36,7 +39,7 @@ def run():
     button2.place(x=70, y=0)
 
     bookMarkInfo = Listbox(window)
-    bookMarkInfo.place(x=20, y=200, width=360, height=340)
+    bookMarkInfo.place(x=20, y=100, width=360, height=400)
 
 
     pass
