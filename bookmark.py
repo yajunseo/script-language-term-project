@@ -4,6 +4,7 @@ import hospital_data
 from tkinter import *
 
 global window
+global bookMarkInfo
 
 def go_start():
     game_framework.change_state(start_state)
@@ -15,13 +16,15 @@ def exit():
     window.destroy()
     pass
 
-def bookWindow():
-    global window
-    return window
+def booklist():
+    global bookMarkInfo
+    bookMarkInfo = Listbox(window)
+    return bookMarkInfo
 
 def run():
 
     global window
+    global bookMarkInfo
     window = Tk()
     window.title('즐겨찾기')
     window.geometry('400x600')
@@ -31,6 +34,9 @@ def run():
 
     button2 = Button(window, text="병원 정보", command=go_hodpital)
     button2.place(x=70, y=0)
+
+    bookMarkInfo = Listbox(window)
+    bookMarkInfo.place(x=20, y=200, width=360, height=340)
 
 
     pass

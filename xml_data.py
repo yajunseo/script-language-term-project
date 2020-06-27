@@ -11,10 +11,23 @@ import bookmark
 def Infromation(window, text):
 
     def marking():
-        win = bookmark.bookWindow()
-        bookhosInfo = Listbox(win)
-        bookhosInfo.append(hosInfo[num-1])
-        print(bookhosInfo[num - 1][0])
+        bookmarklist = bookmark.booklist()
+        for i in range(0, count):
+            print(SIGUN_NM[i])
+            if SIGUN_NM[i] == text:
+                bookmarklist.insert(index, '병원이름: ' + INST_NM[i])
+                index += 1
+                bookmarklist.insert(index, '도로명주소: ' + LOTTION_ADDR[i])
+                index += 1
+                bookmarklist.insert(index, '지번주소: ' + ROADNM_ADDR[i])
+                index += 1
+                bookmarklist.insert(index, '우편번호: ' + ZIP_CD[i])
+                index += 1
+                bookmarklist.insert(index,
+                               '--------------------------------------------------------------------------------------')
+                index += 1
+                num += 1
+        pass
 
 
 
